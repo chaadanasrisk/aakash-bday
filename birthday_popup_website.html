@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Birthday Surprise</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: #f7d5f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      color: #b30086;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 120px);
+      grid-gap: 20px;
+    }
+
+    .box {
+      width: 120px;
+      height: 120px;
+      background: white;
+      border-radius: 12px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      font-size: 20px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .box:hover {
+      background: #ffb3ec;
+    }
+
+    .popup {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      display: none;
+    }
+
+    .popup-content {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      text-align: center;
+      max-width: 80%;
+    }
+
+    .popup-content img {
+      width: 200px;
+      border-radius: 12px;
+      margin-bottom: 15px;
+    }
+
+    .close-btn {
+      margin-top: 10px;
+      background: #b30086;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Birthday Surprises 🎉</h1>
+
+  <div class="grid">
+    <div class="box" onclick="openPopup(1)">1</div>
+    <div class="box" onclick="openPopup(2)">2</div>
+    <div class="box" onclick="openPopup(3)">3</div>
+    <div class="box" onclick="openPopup(4)">4</div>
+    <div class="box" onclick="openPopup(5)">5</div>
+    <div class="box" onclick="openPopup(6)">6</div>
+    <div class="box" onclick="openPopup(7)">7</div>
+    <div class="box" onclick="openPopup(8)">8</div>
+    <div class="box" onclick="openPopup(9)">9</div>
+  </div>
+
+  <!-- Popup -->
+  <div class="popup" id="popup">
+    <div class="popup-content">
+      <img id="popup-img" src="" alt="" />
+      <p id="popup-text"></p>
+      <button class="close-btn" onclick="closePopup()">Close</button>
+    </div>
+  </div>
+
+  <script>
+    const data = {
+      1: {
+        img: "photo1.jpg",
+        text: "Happy Birthday! Here's the first surprise!"
+      },
+      2: {
+        img: "photo2.jpg",
+        text: "You are amazing! Here's memory #2!"
+      },
+      3: {
+        img: "photo3.jpg",
+        text: "Sending love and smiles!"
+      },
+      4: {
+        img: "photo4.jpg",
+        text: "A special day for a special person!"
+      },
+      5: {
+        img: "photo5.jpg",
+        text: "Hope this surprise makes you smile!"
+      },
+      6: {
+        img: "photo6.jpg",
+        text: "Here's another cute memory!"
+      },
+      7: {
+        img: "photo7.jpg",
+        text: "You're truly one of a kind!"
+      },
+      8: {
+        img: "photo8.jpg",
+        text: "More love, more joy, more surprises!"
+      },
+      9: {
+        img: "photo9.jpg",
+        text: "Last one… Happy Birthday!" 
+      }
+    };
+
+    function openPopup(num) {
+      document.getElementById("popup-img").src = data[num].img;
+      document.getElementById("popup-text").innerText = data[num].text;
+      document.getElementById("popup").style.display = "flex";
+    }
+
+    function closePopup() {
+      document.getElementById("popup").style.display = "none";
+    }
+  </script>
+</body>
+</html>
